@@ -3,6 +3,7 @@
          <div class="lieChart">
 
             <!-- LINE CHART -->
+             <h2>Line Chart</h2>
             <div class="main">
                 <h2>Line Chart</h2>
                 <apexchart
@@ -13,6 +14,7 @@
             </div>
 
             <!-- BAR CHART -->
+             <h2>Bar Chart</h2>
             <div class="main">
                 <h2>Bar Chart</h2>
                 <apexchart
@@ -23,12 +25,24 @@
             </div>
 
             <!-- PIE CHART -->
+             <h2>Pie Chart</h2>
             <div class="main">
                 <h2>Pie Chart</h2>
                 <apexchart
                 type="pie"
                 :options="piechartOptions"
                 :series="piechartSeries"
+                />
+            </div>
+
+            <!-- AREA CHART -->
+             <h2>Area Chart</h2>
+            <div class="main">
+                <h2>Area Chart</h2>
+                <apexchart
+                type="area"
+                :options="areachartOptions"
+                :series="areachartSeries"
                 />
             </div>
          </div>
@@ -53,7 +67,7 @@
     const barchartSeries = ref([
         {
             name: 'Revenue',
-            data: [30, 20, 50, 32, 58, 45, 13]
+            data: [30, 20, 50, 32, 58, 45, 13],
         }
     ])
 
@@ -69,6 +83,20 @@
     })
     const piechartSeries = ref([30, 50, 70])
 
+        // AREA CHART
+    const areachartSeries = ref([
+        {
+            name: "Sales",
+            data: [11, 20, 30, 20, 50, 30]
+        }
+    ])
+    const areachartOptions = ref({
+        xaxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June']
+        },
+        
+    })
+
 
 
 
@@ -79,7 +107,7 @@
     .lieChart{
         display: flex;
         padding: 24px;
-        gap: 16px;
+        gap: 5px;
         align-items: center;
         justify-content: center;
         background-color: rgb(34, 34, 166);
@@ -92,5 +120,8 @@
     }
     .main h2{
         font-size: 10px;
+    }
+    h2{
+        color: white;
     }
 </style>
